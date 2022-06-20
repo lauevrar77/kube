@@ -39,9 +39,7 @@
               cat > kube <<EOF
               #! $SHELL
               
-              echo "test"
               export KUBE_CONFIG=\`ls ~/.kube/*.yaml | ${nixpkgsFor.${system}.fzf}/bin/fzf\`
-              echo \$KUBE_CONFIG
               ${nixpkgsFor.${system}.k9s}/bin/k9s --kubeconfig \$KUBE_CONFIG
               EOF
               chmod +x kube
